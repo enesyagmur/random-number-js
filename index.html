@@ -12,9 +12,13 @@
     
 <div class="d-flex flex-column align-items-center">
 
-<input type="text" class="form-control my-5"  placeholder="Aklında ki sayıyı gir:" style="width: 400px;" id="txt">
+  <input type="text" class="form-control my-2"  placeholder="Rasgele minimum değer gir:" style="width: 400px;" id="min">
 
-<input type="button" class="btn bg-warning" value="Tahmin et" style="width: 100px;" onclick="tahmin();">
+  <input type="text" class="form-control my-2"  placeholder="Rasgele maximum değer gir:" style="width: 400px;" id="max">
+
+<input type="text" class="form-control my-2"  placeholder="Aklında ki sayıyı gir:" style="width: 400px;" id="txt">
+
+<input type="button" class="btn bg-warning" value="Tahmin et" style="width: 100px;" onclick="check();">
 
 </div>
 
@@ -22,7 +26,7 @@
     <script>
 
 
-  //  normal sayı 10 kadar syı tahmin
+  //  normal sayı 10 kadar syı tahmin------------------------------------------------
   //  function tahmin() {
    
   //  let tahmin = document.getElementById('txt').value;
@@ -36,22 +40,46 @@
 
 
 
-
-        let rasgele = prompt("0 dan kaça kadar rasgele sayı oluşturulsun?");
-function tahmin () {
-    let tahmin = document.getElementById('txt').value;
+// max random değerini prompt ile alarak rasgele sayı oluşturup tahmini ile kıyaslama-----------------------------------------
+// let rasgelemin = prompt("0 dan kaça kadar rasgele sayı oluşturulsun?");
+// function tahmin () {
+//     let tahmin = document.getElementById('txt').value;
     
-    let x = Math.floor(Math.random() * rasgele);
-    // document.getElementById('txt').value=x;
-   if (tahmin == x) {
-   alert("bildin la kerata");
-   document.getElementById("txt").value=" ";
+//     let x = Math.floor(Math.random() * rasgele);
+//     // document.getElementById('txt').value=x;
+//    if (tahmin == x) {
+//    alert("bildin la kerata");
+//    document.getElementById("txt").value=" ";
+// }
+//    else {
+//    alert("Bilemedin. Sayı = " + x);
+//    document.getElementById("txt").value=" ";
+//    }
+// }
+
+
+
+
+// kullanıcının girdiği 2 sayı arasında random sayı üretip tahmini kontrol etmek-------------------------------------------
+function check(){
+
+  let mintxt = document.getElementById('min').value;
+let min = Number(mintxt); 
+
+let maxtxt = document.getElementById('max').value;
+let max = Number(maxtxt);
+
+let tahmintxt  = document.getElementById('txt').value;
+let tahmin = Number(tahmintxt);
+
+  let random = Math.floor(Math.random()*(max-min+1))+min;
+   if ( tahmin == random) 
+   alert("Bildinnnnnnnnnnnnnnnnnnnn");
+   else
+   alert("bilemedin, sayı:" + random);
 }
-   else {
-   alert("Bilemedin. Sayı = " + x);
-   document.getElementById("txt").value=" ";
-   }
-}
+
+
 
 
 </script>
